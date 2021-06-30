@@ -1644,6 +1644,9 @@ h3{
   }
 }
 @media(max-width:380px){
+  #header_content{
+    margin-left: 20px;
+  }
   #logo_div img{
     width: 130px !important;
     height: auto !important;
