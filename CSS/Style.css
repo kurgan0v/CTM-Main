@@ -97,7 +97,7 @@ section > div {
 }
 
 #directions{
-    background-image: url(../Img/directions-bg-3.png);
+    background-image: url(../Img/directions-bg-4.png);
 }
 
 #app{
@@ -155,7 +155,9 @@ h2{
     line-height: 41px;
     font-weight: 900;
     margin: 0;
-    color: #444444;
+    background: linear-gradient(90deg, #117EC1 0%, #0A6AA6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 #header_div{
     font-family: 'Rubik';
@@ -196,7 +198,7 @@ nav{
     color: #414141;
     font-family: Rubik;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 21px;
     text-decoration: none;
     transition-duration: .3s;
@@ -212,7 +214,9 @@ nav{
     justify-content:center;
     width: 520px;
 }
-
+#header .particles-js-canvas-el{
+  margin-top: 100px;
+}
 #personal_area_button{
     font-family: 'Rubik';
     font-size: 18px;
@@ -236,17 +240,17 @@ nav{
 
 #particles-js {
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     right: 0;
     bottom: 31%;
-    height: 60%;
+    height: 58%;
     width: 100%;
     /* clip-path: polygon(39% 34%, 69% 15%, 100% 0, 100% 100%, 0 100%, 0 70%, 18% 50%); */
 }
 
 #particles-js-2{
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     left: 0;
     top:0;
     height: 100%;
@@ -255,7 +259,7 @@ nav{
 
 #particles-js-3{
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     left: 0;
     top:0;
     height: 100%;
@@ -306,6 +310,8 @@ h1{
     height: 60px;
     margin-right: 22px;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 #header_content{
     display: flex;
@@ -315,7 +321,7 @@ h1{
 
 #header_content_right{
     position: relative;
-
+    z-index: 2;
 }
 #circle{
     position: absolute;
@@ -331,6 +337,7 @@ h1{
     left: 70px;
     width: 655px;
     height: 435px;
+    z-index: 2;
 }
 
 
@@ -338,31 +345,41 @@ h1{
     position: relative;
     top: -50px;
     overflow: hidden;
+    z-index: 29;
 }
 
 #directions_div{
     height: 532px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #directions_div h2{
     padding-top: 105px;
-    padding-left: 112px;
+    transition-duration: .3s;
+}
+#directions_div h2.hide{
+  opacity: 0;
 }
 
 #directions_blocks{
     display: flex;
     align-items: center;
-    margin-left: 112px;
     margin-top: 25px;
     width: min-content;
+    transition-duration: .3s;
 }
-
+#directions_blocks.hide{
+  opacity: 0;
+}
 .directions_block{
     width: 230px;
     height: 230px;
     background: #FFFFFF;
     box-shadow: 10px 10px 10px rgba(49, 88, 188, 0.2);
     border-radius: 30px;
-    margin-right: 40px;
+    margin: 0 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -391,7 +408,7 @@ h1{
 }
 .direction-info{
     opacity: 0;
-    transition-duration: .4s;
+    transition-duration: .7s;
     background: #FFFFFF;
     box-shadow: 10px 10px 10px rgba(49, 88, 188, 0.2);
     border-radius: 30px;
@@ -399,13 +416,34 @@ h1{
     height: 300px;
     justify-content: center;
     overflow: hidden;
-    position: relative;
+    position: absolute;
     display: flex;
+    transform: translateX(-150%);
+}
+.direction-info.show{
+  opacity: 1;
+  z-index: 30;
+  transform: translateX(-50%);
 }
 .direction-info-content{
     margin-left: 50px;
     display: flex;
     justify-content: center;
+}
+.shadow{
+  position: fixed;
+  display: none;
+  opacity: 0;
+  background-color: rgba(0,0,0,.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.shadow.show{
+  z-index: 29;
+  display: block;
+  opacity: 1;
 }
 .direction-info{
     background-color: #FFFFFF;
@@ -423,9 +461,11 @@ h1{
     margin-top: 10px;
 }
 .more-blocks{
-  position: absolute;
   display: flex;
+  z-index: 30;
+  position: relative;
   transition: .4s;
+
 }
 .more-button{
     width: 313px;
@@ -480,7 +520,7 @@ h1{
     background-color: rgba(251, 78, 77, 0.1);
 }
 #app_div{
-    height: 580px;
+    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -506,11 +546,11 @@ h1{
 }
 
 #li_2{
-    width:334px;
+    width:350px;
 }
 
 #li_3{
-    width:450px;
+    width:350px;
 }
 
 #app_div ul{
@@ -525,15 +565,17 @@ h1{
 #phone1{
     position: absolute;
     z-index: 9;
-    top: 20px;
+    top: -60px;
     left: 250px;
+    width: 250px;
 }
 
 #phone2{
     position: absolute;
     z-index: 10;
-    top: 150px;
+    top: -50px;
     left: 350px;
+    width: 270px;
 }
 
 #news_div{
@@ -1068,7 +1110,7 @@ h3{
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-742px));
+      transform: translateX(-742px);
     }
   }
 
@@ -1077,7 +1119,7 @@ h3{
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-742px));
+      transform: translateX(-742px);
     }
   }
   .slider {
@@ -1085,7 +1127,7 @@ h3{
     margin: auto;
     overflow: hidden;
     position: relative;
-    width: 960px;
+    width: 1100px;
   }
   .slider::before, .slider::after {
     background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
@@ -1168,6 +1210,7 @@ h3{
     padding-top: 85px;
     padding-left: 60px;
   }
+
   #directions_blocks {
     margin-left: 60px;
   }

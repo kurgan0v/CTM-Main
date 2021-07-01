@@ -19,14 +19,12 @@
             <nav>
                 <div id="left_part_of_nav">
                     <div id="logo_div">
-                        <img src="Img/logo.svg" width="160px" height="60px">
-                        <p>Центр телемедицины</p>
+                        <img src="Img/logo.png" width="160px">
                     </div>
                     <a href="">Главная</a>
                     <a href="">Магазин</a>
                     <a href="">Статьи</a>
                     <a href="">О компании</a>
-                    <a href="">Лицензии</a>
                 </div>
                 <div id="right_part_of_nav">
                     <button id="personal_area_button">Личный кабинет</button>
@@ -52,7 +50,7 @@
                     <p>Следите за своим здоровьем<br>с помощью современных технологий</p>
                     <p class="eye-catching_text">Нужна ли вам телемедицина? Пройдите простой тест, чтобы узнать</p>
                     <button id="test_btn">Пройти тест</button>
-                    <img src="Img/Arrow.svg" alt="">
+                    <!-- <img src="Img/Arrow.svg" alt=""> -->
                 </div>
                 <div id="header_content_right">
                     <img id="circle" src="Img/el.png"  alt="">
@@ -176,35 +174,45 @@
               </div>
             </div>
         </div>
+        <div class="shadow"></div>
     </section>
     <script>
       let width = document.querySelector('.more-blocks').clientWidth;
       let len = document.querySelectorAll('.direction-info').length;
       let margin = parseInt(window.getComputedStyle(document.querySelector('#directions_blocks')).marginLeft);
       let blocks = document.querySelectorAll('div.directions_block');
+      let blockWidth = width / len;
       blocks.forEach((item) => {
         item.addEventListener('click', (e)=>{
           let id = blocks.indexOf(item);
-          document.querySelector('.more-blocks').style.transform = `translateY(-250px) translateX(${-blockWidth*id+margin}px)`;
-          document.querySelectorAll('.direction-info')[id].style.opacity=1;
+          document.querySelector('#directions_div h2').classList.add('hide');
+          document.querySelector('#directions_blocks').classList.add('hide');
+          document.querySelectorAll('.direction-info')[id].classList.add('show');
+          document.querySelector('.shadow').classList.add('show');
+
           document.querySelectorAll('.direction-info > button')[id].addEventListener('click', ()=>{
-            document.querySelector('.more-blocks').style.transform = `translateY(-250px) translateX(-${width}px)`;
-            document.querySelectorAll('.direction-info')[id].style.opacity=0;
+            document.querySelector('.more-blocks').style.transform = `translateY(-250px) translateX(-${blockWidth}px)`;
+            document.querySelector('#directions_div h2').classList.remove('hide');
+            document.querySelector('#directions_blocks').classList.remove('hide');
+            document.querySelectorAll('.direction-info')[id].classList.remove('show');
+            document.querySelector('.shadow').classList.remove('show');
           });
         })
       });
       blocks = Array.from(blocks);
-      document.querySelector('.more-blocks').style.transform = `translateY(-250px) translateX(-${width}px)`;
-      let blockWidth = width / len;
+      document.querySelector('.more-blocks').style.transform = `translateY(-250px) translateX(-${blockWidth}px)`;
+
     </script>
     <section id="app">
         <div id="app_div">
             <div>
                 <h2>Теперь здоровье — это просто</h2>
                 <ul>
-                    <li><p id="li_1">Все устройства управляются с удобных приложений в вашем телефоне</p> </li>
-                    <li><p id="li_2">Вся статистика по вашей проблеме хранится в одном месте</p></li>
-                    <li><p id="li_3">Вы всегда можете связаться со специалистом и получить подробную обратную связь</p></li>
+                    <li><p id="li_1">Управляйте устройствами с мобильных приложений в вашем телефоне</p> </li>
+                    <li><p id="li_2">Сохраняйте данные о состоянии вашего здоровья и лечения в одном месте</p></li>
+                    <li><p id="li_3">Экономьте дополнительное время и средства с помощью наших технологий</p></li>
+                    <li><p id="li_3">Забудьте о лишних походах к врачам и бесконечных очередях</p></li>
+                    <li><p id="li_3">Контролируйте здоровье и проводите процедуры там, где вам удобно</p></li>
                 </ul>
             </div>
             <img  src="Img/phone1.png" id="phone1" alt="">
@@ -297,6 +305,7 @@
                   document.querySelectorAll('.slide').forEach((item) => {
                     slideWidth+=item.clientWidth;
                   });
+                  console.log(slideWidth);
                   document.querySelector('.slider .slide-track').style.width = slideWidth;
                 </script>
         </div>
@@ -313,11 +322,11 @@
                 <div>
                     <div id="contacts_email_div">
                         <img src="Img/email.png" alt="Наша электронная почта">
-                        <p class="contacts_text">examle@mail.ru</p>
+                        <p class="contacts_text">oooctm2020@gmail.com</p>
                     </div>
                     <div id="contacts_phone_div">
                         <img src="Img/phone.png" alt="Наш номер">
-                        <p class="contacts_text">+7(951)884-44-44</p>
+                        <p class="contacts_text">+7 (951) 884-44-44</p>
                     </div>
                 </div>
             </div>
@@ -413,7 +422,7 @@
                       <input type="text" placeholder="Название">
 
                       <p class="label">Телефон</p>
-                      <input type="text" placeholder="+7(***)-***-**-**">
+                      <input type="text" placeholder="+7(***)-***-**-**" class="tel-mask">
 
                       <p class="label">e-mail</p>
                       <input type="text" placeholder="Mycom@mail.com">
@@ -435,6 +444,16 @@
           <button type="button" name="button" class="close-form">X</button>
         </div>
     </div>
+
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+    var elements = document.getElementsByClassName('tel-mask');
+    for (var i = 0; i < elements.length; i++) {
+      new IMask(elements[i], {
+        mask: '+{7}(000)000-00-00',
+      });
+    }
+    </script>
     <script>
       document.querySelectorAll("#personal_area_button").forEach(e => e.onclick = popup);
       document.querySelectorAll(".close").forEach(e => e.onclick = popup);
