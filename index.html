@@ -19,7 +19,7 @@
             <nav>
                 <div id="left_part_of_nav">
                     <div id="logo_div">
-                        <img src="Img/logo.png" width="160px">
+                        <img src="Img/logo.png" width="200px">
                     </div>
                     <a href="">Главная</a>
                     <a href="">Магазин</a>
@@ -73,22 +73,22 @@
             <div id="directions_blocks">
                 <div class="directions_block" id="cardiology">
 
-                        <img src="Img/cardiology_logo.svg" alt="">
+                        <img src="Img/heart.svg" alt="">
                         <p>Кардиология</p>
                 </div>
                 <div class="directions_block" id="gynecology">
 
-                        <img src="Img/gynecology_logo.svg" alt="">
+                        <img src="Img/uterus.svg" alt="">
                     <p>Гинекология</p>
                 </div>
                 <div class="directions_block" id="urology">
 
-                        <img src="Img/urology_logo.svg" alt="">
+                        <img src="Img/kidneys.svg" alt="">
                         <p>Урология</p>
                 </div>
                 <div class="directions_block" id="ophthalmology">
 
-                        <img src="Img/ophthalmology_logo.svg" alt="">
+                        <img src="Img/eye.svg" alt="">
                         <p>Офтальмология</p>
                 </div>
 
@@ -233,31 +233,31 @@
     </section>
     <section id="news">
         <div id="news_div">
-            <img src="Img/circle_news.png">
+            <!-- <img src="Img/circle_news.png"> -->
             <div id="news_headers">
                 <h2>Новости центра</h2>
                 <p>Мы постоянно держим руку на пульсе в сфере современных медицинских разработок</p>
             </div>
             <div id="news_blocks">
                 <div class="news_block">
-                    <img src="Img/news_1.png" alt="">
+                    <img src="Img/news1.jpg" alt="">
                     <p class="date_p">18.04.2021</p>
-                    <p>Выступление на международном форуме</p>
+                    <p>Технологии телемедицины на базе искусственного интеллекта</p>
                 </div>
                 <div class="news_block">
-                  <img src="Img/news_1.png" alt="">
+                  <img src="Img/news2.jpg" alt="">
                   <p class="date_p">18.04.2021</p>
-                  <p>Выступление на международном форуме</p>
+                  <p>Во Франции одобрено новое исскуственное сердце</p>
                 </div>
                 <div class="news_block">
-                  <img src="Img/news_1.png" alt="">
+                  <img src="Img/news3.jpg" alt="">
                   <p class="date_p">18.04.2021</p>
-                  <p>Выступление на международном форуме</p>
+                  <p>Нерегулярный сон резко увеличивает риск гипертонии и инфаркта</p>
                 </div>
                 <div class="news_block">
-                  <img src="Img/news_1.png" alt="">
+                  <img src="Img/news4.jpg" alt="">
                   <p class="date_p">18.04.2021</p>
-                  <p>Выступление на международном форуме</p>
+                  <p>Российская телемедицина начала развиваться гигантским темпами на фоне пандемии</p>
                 </div>
             </div>
             <div id="news_buttons">
@@ -444,7 +444,27 @@
           <button type="button" name="button" class="close-form">X</button>
         </div>
     </div>
+    <div class="wrap-form-call">
+        <div class="form-call">
+          <form action="">
+              <h3 >Заполните форму и мы перезвоним вам в течении 5 минут!</h3>
+              <div id="form-call-content">
+                      <div>
+                        <p class="label">Ваше ФИО</p>
+                        <input type="text" placeholder="Название">
+                      </div>
 
+                      <div>
+                        <p class="label">Телефон</p>
+                        <input type="text" placeholder="+7(***)-***-**-**" class="tel-mask">
+                      </div>
+
+                      <button type="submit" id="enter_btn">Отправить</button>
+              </div>
+          </form>
+          <button type="button" name="button" class="close-form">X</button>
+        </div>
+    </div>
     <script src="https://unpkg.com/imask"></script>
     <script>
     var elements = document.getElementsByClassName('tel-mask');
